@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Test Home</title>
+    <style>
+        /* inline css */
+        label.fixedwidth {
+            width: 100px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <script type="module">
+        import { showDeceasedOfDay } from "./js/modules/wikidata.js";
+        window.showDeceasedOfDay = showDeceasedOfDay;
+    </script>
+
+    <h2>Wikidata tests</h2>
+    <h5>Get death occurences</h5>
+
+    <label for="inputYear">Year:</label>&nbsp;<input style="width: 60px;" type="number" min="1945" max="2020" required value="2000" id="inputYear">
+    <a class="text-danger" id="validationMessageinputYear"></a>&nbsp;&nbsp;&nbsp;
+    <label for="inputMonthId">Month id:</label>&nbsp;<input style="width: 90px;" type="number" min="1" max="12" required placeholder="5 = May" id="inputMonthId">
+    <a class="text-danger" id="validationMessageinputMonthId"></a>
+    <label for="inputDay">Day:</label>&nbsp;<input style="width: 90px;" type="number" min="1" max="31" required placeholder="Day" id="inputDay">
+    <a class="text-danger" id="validationMessageinputDay"></a>
+    <p />
+    <input type="button" onclick="showDeceasedOfDay(event)" value="Show deaths of day" />
+
+    <div id="container"></div>
+
+    <hr>
+    <h4>Test form method="post" -> API</h4>
+
+    <form method="post" action="test/addemployee">
+        <label class="fixedwidth" for="fname" >First name:</label>
+        <input type="text" id="fname" name="firstName"><br>
+        <label class="fixedwidth" for="lname">Last name:</label>
+        <input type="text" id="lname" name="lastName"><br>
+        <label class="fixedwidth" for="email">Email ID:</label>
+        <input type="text" id="email" name="emailId"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+        <script type="module">
+            import { getAssemblyInfo } from "./js/modules/util.js";
+            window.getAssemblyInfox = getAssemblyInfo;
+
+            await getAssemblyInfox();
+        </script>
+        <div style="font-size: small" id="assemblyInfo"></div>
+        <div style="font-size: small"><a href="index.html">home</a></div>
+</body>
+</html>
