@@ -1,8 +1,8 @@
 ﻿export function getUrlBase() {
     //######################### E N V I R O N M E N T #########################
-    var dev = true;
+    var dev = false;
     //#########################################################################
-    return (dev ? "https://localhost:44341/" : "https://vx.azurewebsites.net/");
+    return (dev ? "https://localhost:44341/" : "https://somedomain.azurewebsites.net/");
 }
 
 export function validInput(elementId) {
