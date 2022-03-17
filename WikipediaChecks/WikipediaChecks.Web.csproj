@@ -12,17 +12,20 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>WikipediaChecks</RootNamespace>
     <AssemblyName>WikipediaChecks</AssemblyName>
-    <AssemblyVersion>1.0.2.1</AssemblyVersion>
+    <AssemblyVersion>1.0.3.1</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Remove="wwwroot\js\wikidata.js" />
     <Content Remove="wwwroot\js\wikipedia.js" />
     <Content Remove="wwwroot\test.html" />
+    <Content Remove="wwwroot\wikidata.html" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\js\modules\hello.js" />
+    <None Include="wwwroot\wikidata.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>    
     <None Include="wwwroot\js\modules\wikipedia.js" />
     <None Include="wwwroot\js\modules\wikidata.js" />
     <None Include="wwwroot\test.html">
@@ -36,7 +39,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Wikimedia.Utilities" Version="1.0.8" />
+    <PackageReference Include="Wikimedia.Utilities" Version="1.0.9" />
   </ItemGroup>
 
   <ItemGroup>

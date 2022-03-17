@@ -16,7 +16,7 @@
     <h2>Wikipedia checks</h2>
     <h5>Check death occurences</h5>
 
-    <label for="inputYear">Year:</label>&nbsp;<input style="width: 60px;" type="number" min="1945" max="2020" required value="2000" id="inputYear">
+    <label for="inputYear">Year:</label>&nbsp;<input style="width: 60px;" type="number" min="1000" max="2020" required value="1994" id="inputYear">
     <a class="text-danger" id="validationMessageinputYear"></a>&nbsp;&nbsp;&nbsp;
     <label for="inputMonthId">Month id:</label>&nbsp;<input style="width: 90px;" type="number" min="1" max="12" required placeholder="5 = May" id="inputMonthId">
     <a class="text-danger" id="validationMessageinputMonthId"></a>
@@ -25,7 +25,7 @@
     <p />
     <input type="button" onclick="showDeceasedOfDay(event)" value="Show deaths of day" /><span style="width:41px;display:inline-block"></span>
     <input type="button" onclick="showDeathCountsPerDay(event)" value="Show deaths count per day" />
-    <input type="checkbox" name="processYear" value="processYear" id="chkProcessYear" checked>
+    <input type="checkbox" name="processYear" value="processYear" id="chkProcessYear" >
     <label for="processYear">process entire year</label>
 
     <div id="result"></div>
@@ -36,7 +36,8 @@
 
         await getAssemblyInfo();
     </script>
-    <div style="font-size: small" id="assemblyInfo"></div>    
-    <div style="font-size: small"><a href="test.html">test wikidata</a></div>
+    <div style="font-size: small" id="assemblyInfo"></div>
+    <div style="font-size: small"><a href="wikidata.html">wikidata</a></div>
+    <div style="font-size: small"><a href="test.html">sandbox</a></div>
 </body>
 </html>
