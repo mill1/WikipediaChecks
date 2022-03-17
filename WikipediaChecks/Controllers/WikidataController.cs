@@ -2,7 +2,9 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Wikimedia.Utilities.Interfaces;
+using WikipediaChecks.Models;
 
 namespace WikipediaChecks.Controllers
 {
@@ -25,7 +27,7 @@ namespace WikipediaChecks.Controllers
         {
             try
             {
-                return Ok(wikidataService.GetItemsPerDeathDate(date));
+                return Ok(wikidataService.GetItemsPerDeathDate(date, false));
             }
             catch (Exception e)
             {
@@ -34,6 +36,35 @@ namespace WikipediaChecks.Controllers
                 logger.LogError($"{message}", e);
                 return Ok(new List<Error> { new Error { Error_Type = e.GetType().Name, Error_Message = message, InnerExceptionMessage = e.InnerException?.Message } });
             }
+        }
+
+        [HttpGet("deathscountperday/{year}/{monthId}")]
+        public IActionResult GetDeathsCountPerDay(int year, int monthId)
+        {
+            try
+            {
+                return Ok(GetWikidataItemsPerDay(year, monthId));
+            }
+            catch (Exception e)
+            {
+                string message = $"Getting the deaths count per day by month failed. Requested month of death: {monthId} {year}.\r\n" +
+                                 $"Exception:\r\n{e.Message}";
+                logger.LogError($"{message}", e);
+                return Ok(new List<Error> { new Error { Error_Type = e.GetType().Name, Error_Message = message, InnerExceptionMessage = e.InnerException?.Message } });
+            }
+        }
+
+        private IEnumerable<CountPerDay> GetWikidataItemsPerDay(int year, int month)
+        {
+            List<CountPerDay> deathsCounts = new List<CountPerDay>();
+
+            for (int day = 1; day <= DateTime.DaysInMonth(year, month); day++)
+            {
+                var items = wikidataService.GetItemsPerDeathDate(new DateTime(year, month, day), true);
+
+                deathsCounts.Add(new CountPerDay { Day = day, Count = items.Count() });
+            }
+            return deathsCounts;
         }
     }
 }
