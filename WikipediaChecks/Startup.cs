@@ -30,7 +30,7 @@ namespace WikipediaChecks
                 options.AddPolicy(name: "AllowSpecificOrigin",
                     policy =>
                     {
-                        policy.WithOrigins("https://vx.azurewebsites.net")
+                        policy.WithOrigins("http://sonictonic.nl")
                                             .AllowAnyHeader()
                                             .AllowAnyMethod();
                     });
