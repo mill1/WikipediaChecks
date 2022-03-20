@@ -91,7 +91,10 @@ function SetCountCellStyle(count, cell) {
 
     switch (count) {
         case 0:
-            cell.setAttribute("style", "background-color:purple;color:white;text-align:right");            
+            cell.setAttribute("style", "background-color:red;color:white;text-align:right");            
+            break;
+        case 1:
+            cell.setAttribute("style", "background-color:yellow;text-align:right");
             break;
         default:
             cell.setAttribute("style", "text-align:right");
