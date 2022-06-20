@@ -1,6 +1,6 @@
 ﻿export function getUrlBase() {
     //######################### E N V I R O N M E N T #########################
-    var dev = false;
+    var dev = true;
     //#########################################################################
     return (dev ? "https://localhost:44341/" : "http://sonictonic.nl/");
 }
@@ -61,25 +61,24 @@ export function createLink(href, text) {
 
 export function isCountCell(columnName) {
 
-    if (columnName === 'count' ||
-        columnName === 'jan' ||
-        columnName === 'feb' ||
-        columnName === 'mar' ||
-        columnName === 'apr' ||
-        columnName === 'may' ||
-        columnName === 'jun' ||
-        columnName === 'jul' ||
-        columnName === 'aug' ||
-        columnName === 'sep' ||
-        columnName === 'oct' ||
-        columnName === 'nov' ||
-        columnName === 'dec')
-    {
-        return true;
+    switch (columnName) {
+        case 'count':
+        case 'jan':
+        case 'feb':
+        case 'mar':
+        case 'apr':
+        case 'may':
+        case 'jun':
+        case 'jul':
+        case 'aug':
+        case 'sep':
+        case 'oct':
+        case 'nov':
+        case 'dec':
+            return true;
+        default:
+            return false;
     }
-        
-    
-    return false;
 }
 
 export function createTable(children, styleClass) {

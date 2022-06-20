@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Wikimedia.Utilities.Interfaces;
@@ -12,7 +11,7 @@ namespace WikipediaChecks.Services
     {
         private readonly IWikiTextService wikiTextService;
 
-        public WikipediaService(IWikipediaWebClient wikipediaWebClient, IWikiTextService wikiTextService, ILogger<WikipediaService> logger)
+        public WikipediaService(IWikipediaWebClient wikipediaWebClient, IWikiTextService wikiTextService)
         {
             this.wikiTextService = wikiTextService;
         }
