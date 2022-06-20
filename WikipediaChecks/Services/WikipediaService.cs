@@ -12,7 +12,7 @@ namespace WikipediaChecks.Services
     {
         private readonly IWikiTextService wikiTextService;
 
-        public WikipediaService(IWikipediaWebClient wikipediaWebClient, IWikiTextService wikiTextService, ILogger<WikipediaService> logger)
+        public WikipediaService(IWikipediaWebClient wikipediaWebClient, IWikiTextService wikiTextService)
         {
             this.wikiTextService = wikiTextService;
         }

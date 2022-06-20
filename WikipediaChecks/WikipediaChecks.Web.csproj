@@ -12,13 +12,13 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>WikipediaChecks</RootNamespace>
     <AssemblyName>WikipediaChecks</AssemblyName>
-    <AssemblyVersion>1.0.3.1</AssemblyVersion>
+    <AssemblyVersion>1.0.3.2</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <Content Remove="wwwroot\js\wikidata.js" />
     <Content Remove="wwwroot\js\wikipedia.js" />
-    <Content Remove="wwwroot\test.html" />
+    <Content Remove="wwwroot\sandbox.html" />
     <Content Remove="wwwroot\wikidata.html" />
   </ItemGroup>
 
@@ -28,7 +28,7 @@
     </None>    
     <None Include="wwwroot\js\modules\wikipedia.js" />
     <None Include="wwwroot\js\modules\wikidata.js" />
-    <None Include="wwwroot\test.html">
+    <None Include="wwwroot\sandbox.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="wwwroot\index.html">
