@@ -27,7 +27,13 @@ namespace WikipediaChecks.Services
             {
                 string deathsPerDayText = wikiTextService.GetDaySectionOfMonthList(deathsPerMonthText, day);
                 IEnumerable<string> rawDeceased = wikiTextService.GetDeceasedTextAsList(deathsPerDayText);
-                deathsCounts.Add(new CountPerDay { Day = day, Count = rawDeceased.Count() });
+
+                //deathsCounts.Add(new CountPerDay { Day = day, Count = rawDeceased.Count() });
+                int count = 0;
+                if (rawDeceased.Count() > 3)
+                    count = rawDeceased.Where(e => e.Contains("<ref")).Count();
+
+                deathsCounts.Add(new CountPerDay { Day = day, Count = count });
             }
             return deathsCounts;
         }
